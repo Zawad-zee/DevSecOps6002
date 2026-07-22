@@ -1,0 +1,27 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Secure User Data Storage - Lab 1",
+    "owner": "Zawadh",
+    "description": "A Python command-line application that stores user credentials (username, password, email) in a local JSON file. Passwords are encrypted using Fernet (AES), and each record is protected with a SHA-256 integrity hash. The application detects tampering by comparing a monitored file against reference hashes, with results logged to an audit file.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "DevSecOps-CIAT",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [],
+        "description": "CIAT mapping to DevSecOps"
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "Tim Wong",
+    "threatTop": 0
+  }
+}
