@@ -17,7 +17,7 @@ Tasks were to write a Python script to read/write unencrypted credentials from/t
 which later would be used to check the integrity of the data.
 
 As the lesson was on DevSecOps and CIA Triad, I decided to extend the project to give a more real life experience for myself.
-- Threat Modeling using OWASP Zap
+- Threat Modeling using OWASP Threat Dragon
 - first script to be following no secure coding principles
 - second script following and implementing significant principles to showcase the secure coding principles (DRY, no hardcoded credentials, logging, integrity checks, file handling exception, pwd requirements)
 - Docker + Splunbk for logging and monitoring
