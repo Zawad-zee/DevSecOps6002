@@ -1,0 +1,51 @@
+2026-07-21 23:38:17,202 [INFO] secure_store: processed 6 records into secure_users.json
+2026-07-21 23:38:17,202 [INFO] Integrity check PASSED for user 'alice'
+2026-07-21 23:38:17,203 [INFO] Integrity check PASSED for user 'bob'
+2026-07-21 23:38:17,203 [INFO] Integrity check PASSED for user 'carol'
+2026-07-21 23:38:17,203 [INFO] Integrity check PASSED for user 'dave'
+2026-07-21 23:38:17,203 [INFO] Integrity check PASSED for user 'eve'
+2026-07-21 23:38:17,203 [INFO] Integrity check PASSED for user 'frank'
+2026-07-21 23:38:17,203 [INFO] Starting tamper check on 'users_tampered.json'
+2026-07-21 23:38:17,204 [INFO] Tamper check PASSED for user 'alice'
+2026-07-21 23:38:17,204 [WARNING] TAMPERING DETECTED in 'users_tampered.json' for user 'bob' - expected hash c19d5fe25c6b0ea48bad48e5d31de16cefc341486dce3f0b6560d88f5ceeaeed, got eb5b15e46c586fd9a4866d0877c2491e29abd2765719c74dbd1b56af75b5f7a4
+2026-07-21 23:38:17,204 [INFO] Tamper check PASSED for user 'carol'
+2026-07-21 23:38:17,204 [INFO] Tamper check PASSED for user 'dave'
+2026-07-21 23:38:17,204 [INFO] Tamper check PASSED for user 'eve'
+2026-07-21 23:38:17,204 [WARNING] Tamper check complete: tampering found in users_tampered.json
+2026-07-21 23:38:17,204 [WARNING] Rejected new user 'gina': Password must be at least 8 characters long.
+2026-07-21 23:38:17,205 [INFO] secure_store: processed 7 records into secure_users.json
+2026-07-21 23:38:17,205 [INFO] User 'henry' added successfully.
+2026-07-21 23:39:48,857 [INFO] secure_store: processed 7 records into secure_users.json
+2026-07-21 23:39:48,857 [INFO] Integrity check PASSED for user 'alice'
+2026-07-21 23:39:48,857 [INFO] Integrity check PASSED for user 'bob'
+2026-07-21 23:39:48,857 [INFO] Integrity check PASSED for user 'carol'
+2026-07-21 23:39:48,858 [INFO] Integrity check PASSED for user 'dave'
+2026-07-21 23:39:48,858 [INFO] Integrity check PASSED for user 'eve'
+2026-07-21 23:39:48,858 [INFO] Integrity check PASSED for user 'frank'
+2026-07-21 23:39:48,858 [INFO] Integrity check PASSED for user 'henry'
+2026-07-21 23:39:48,858 [INFO] Starting tamper check on 'users_tampered.json'
+2026-07-21 23:39:48,858 [INFO] Tamper check PASSED for user 'alice'
+2026-07-21 23:39:48,859 [WARNING] TAMPERING DETECTED in 'users_tampered.json' for user 'bob' - expected hash c19d5fe25c6b0ea48bad48e5d31de16cefc341486dce3f0b6560d88f5ceeaeed, got eb5b15e46c586fd9a4866d0877c2491e29abd2765719c74dbd1b56af75b5f7a4
+2026-07-21 23:39:48,859 [INFO] Tamper check PASSED for user 'carol'
+2026-07-21 23:39:48,859 [INFO] Tamper check PASSED for user 'dave'
+2026-07-21 23:39:48,859 [INFO] Tamper check PASSED for user 'eve'
+2026-07-21 23:39:48,859 [WARNING] Tamper check complete: tampering found in users_tampered.json
+2026-07-21 23:39:48,859 [WARNING] Rejected new user 'gina': Password must be at least 8 characters long.
+2026-07-21 23:39:48,861 [INFO] secure_store: processed 8 records into secure_users.json
+2026-07-21 23:39:48,861 [INFO] User 'henry' added successfully.
+2026-07-21 23:50:47,413 [INFO] secure_store: processed 5 records into secure_users.json
+2026-07-21 23:50:47,414 [INFO] Integrity check PASSED for user 'alice'
+2026-07-21 23:50:47,414 [INFO] Integrity check PASSED for user 'bob'
+2026-07-21 23:50:47,414 [INFO] Integrity check PASSED for user 'carol'
+2026-07-21 23:50:47,414 [INFO] Integrity check PASSED for user 'dave'
+2026-07-21 23:50:47,414 [INFO] Integrity check PASSED for user 'eve'
+2026-07-21 23:50:47,414 [INFO] Starting tamper check on 'users_tampered.json'
+2026-07-21 23:50:47,414 [INFO] Tamper check PASSED for user 'alice'
+2026-07-21 23:50:47,414 [WARNING] TAMPERING DETECTED in 'users_tampered.json' for user 'bob' - expected hash c19d5fe25c6b0ea48bad48e5d31de16cefc341486dce3f0b6560d88f5ceeaeed, got eb5b15e46c586fd9a4866d0877c2491e29abd2765719c74dbd1b56af75b5f7a4
+2026-07-21 23:50:47,414 [INFO] Tamper check PASSED for user 'carol'
+2026-07-21 23:50:47,414 [INFO] Tamper check PASSED for user 'dave'
+2026-07-21 23:50:47,414 [INFO] Tamper check PASSED for user 'eve'
+2026-07-21 23:50:47,415 [WARNING] Tamper check complete: tampering found in users_tampered.json
+2026-07-21 23:51:21,418 [WARNING] Rejected new user 'cr7': Password must be at least 8 characters long.
+2026-07-21 23:52:09,016 [INFO] secure_store: processed 6 records into secure_users.json
+2026-07-21 23:52:09,016 [INFO] User 'cr7' added successfully.

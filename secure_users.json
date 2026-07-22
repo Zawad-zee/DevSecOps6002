@@ -1,0 +1,38 @@
+[
+    {
+        "username": "alice",
+        "password": "gAAAAABqYD5pOdKRLPk2QSNpIbpL1q1XCB1Oj2ZuEzaFJ_gpvsozrQqExZixW4gLt7bI5ga3IcjsxpTyDhdAd5RVdvsr1SkbFA==",
+        "email": "alice@example.com",
+        "integrity_hash": "7307e492e03853027c9257c3c51588ca2973c359a56a4f8f96388bd787afdfe9"
+    },
+    {
+        "username": "bob",
+        "password": "gAAAAABqYD5poC273lALSA2uDgt3cBHTCtlb4yBCrU_h1MSyHgTHYoe7_Zuc1nRGbGBkBrI44fu2fWmBrIl9N7IMlswfR-6TCA==",
+        "email": "bob@example.com",
+        "integrity_hash": "c19d5fe25c6b0ea48bad48e5d31de16cefc341486dce3f0b6560d88f5ceeaeed"
+    },
+    {
+        "username": "carol",
+        "password": "gAAAAABqYD5psh03p5NSmX_GriIGQTfN083KlOas3s5jX3wUJKPx0AsnFbo0bSqJs7m2jbaf3RQl4CfAK8FT0dB-r6nPtq8gUw==",
+        "email": "carol@example.com",
+        "integrity_hash": "cab2ccacdfc996b4f06f1e285e9b8384cec50e8fee79be655e4c99eb0b192f19"
+    },
+    {
+        "username": "dave",
+        "password": "gAAAAABqYD5p8LVwhuWuaJR9z4tg8k5c_XxXXs7hJ4v4u7ktrB47K9wTmkzFKrk9nXkb8fj0SjQkGffDOVUH2qcaeA0Q-ylyfA==",
+        "email": "dave@example.com",
+        "integrity_hash": "eb3c2d89ec746c24a737dbe909e76d5c8c6efa8b5132ef68f0a90e5280279563"
+    },
+    {
+        "username": "eve",
+        "password": "gAAAAABqYD5p5bzfp2gztfVjxEGhT9ExnnnU-fblgWAbg2tB2FzJQJJMVQfZ6o_Dm2h15cuG8Q3YXKgJeQQ9vp83PQgXsS513w==",
+        "email": "eve@example.com",
+        "integrity_hash": "b5d8a7a54e65a81c9352826f62e940ecc80ab1911aa3a1c18f3c1ef8ab717003"
+    },
+    {
+        "username": "cr7",
+        "password": "gAAAAABqYD5prlWtl0WMLD1qBPZyWwekXmyTKshFAfhmpIHVutO1m_3WhhAviuP1r4DyQ8JwguA019afq6_jTyox6JvoSrL2Zw==",
+        "email": "cr7@uefa.com",
+        "integrity_hash": "c6cad0bbec986f98092bc899531154470f5ef1c7a55bab241b68fdf66e63d249"
+    }
+]
