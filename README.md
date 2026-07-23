@@ -16,8 +16,4 @@ By the end of this lab, you will be able to:
 Tasks were to write a Python script to read/write unencrypted credentials from/to a json file. The second version would be encrypting the credentials and hashing the entry, 
 which later would be used to check the integrity of the data.
 
-As the lesson was on DevSecOps and CIA Triad, I decided to extend the project to give a more real life experience for myself.
-- Threat Modeling using OWASP Threat Dragon
-- first script to be following no secure coding principles
-- second script following and implementing significant principles to showcase the secure coding principles (DRY, no hardcoded credentials, logging, integrity checks, file handling exception, pwd requirements)
-- Docker + Splunbk for logging and monitoring
+I expanded this DevSecOps and CIA‑focused lab to simulate a more realistic workflow by incorporating threat modeling with OWASP Threat Dragon and developing two Python scripts: one intentionally insecure and one implementing strong secure‑coding practices such as DRY principles, removal of hard‑coded credentials, logging, integrity checks, exception‑safe file handling, and password requirements. The project also integrates Docker and Splunk for logging, monitoring, and operational visibility.
