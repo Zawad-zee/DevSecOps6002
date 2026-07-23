@@ -19,8 +19,8 @@
         "cells": [
           {
             "position": {
-              "x": 651.25,
-              "y": 150
+              "x": 221.25,
+              "y": 315
             },
             "size": {
               "width": 150,
@@ -28,15 +28,17 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "3c5fd63c-48d1-4ab6-b257-0aa0926a1f35",
             "zIndex": -1,
+            "id": "3c5fd63c-48d1-4ab6-b257-0aa0926a1f35",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
-              "crossingFlows": [],
+              "crossingFlows": [
+                "5fab2f5d-89b3-4c97-a4cd-77180b840779"
+              ],
               "containedElements": [
                 "39a51ee5-b7ac-40af-a391-a78c88b71005"
               ]
@@ -44,8 +46,8 @@
           },
           {
             "position": {
-              "x": 670,
-              "y": 160
+              "x": 240,
+              "y": 325
             },
             "size": {
               "width": 112.5,
@@ -63,6 +65,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -146,7 +149,6 @@
               ]
             },
             "id": "39a51ee5-b7ac-40af-a391-a78c88b71005",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "User",
@@ -161,8 +163,8 @@
           },
           {
             "position": {
-              "x": 250,
-              "y": 295
+              "x": 651.25,
+              "y": 290
             },
             "size": {
               "width": 230,
@@ -180,6 +182,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -263,7 +266,6 @@
               ]
             },
             "id": "527f4430-e9ae-4e08-aa11-5a20ca5df460",
-            "zIndex": 2,
             "data": {
               "type": "tm.Process",
               "name": "secure_version.py",
@@ -279,23 +281,36 @@
               "threats": [
                 {
                   "id": "138231a7-bcf0-4ca4-a913-70048789ffc3",
-                  "title": "Tampering",
+                  "title": "Weak/no input validation",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "No integrity hash allows undetected modification of stored records",
-                  "mitigation": "mitigated by SHA-256 hashing",
+                  "description": "Empty or malformed input (username/password/email) could be accepted, corrupting stored data.",
+                  "mitigation": "validate_input() rejects empty fields, short passwords, and malformed emails.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "3c1c58ca-2379-4dd1-8e05-baaf0abc9797",
+                  "title": "Hardcoded encryption key",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "A key embedded directly in source code (as in insecure_version.py) is exposed to anyone who reads the file or repo.",
+                  "mitigation": "Key generated once and stored in a separate secret.key file, excluded from version control via .gitignore.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
                   "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "tampering": 2,
+                "tampering": 3,
                 "repudiation": 0,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
@@ -303,8 +318,8 @@
           },
           {
             "position": {
-              "x": 886,
-              "y": 315
+              "x": 1190,
+              "y": 310
             },
             "size": {
               "width": 220,
@@ -315,16 +330,19 @@
                 "text": "users.json / secure_"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -408,7 +426,6 @@
               ]
             },
             "id": "69f313d9-f554-4f92-843a-04bac686cf12",
-            "zIndex": 3,
             "data": {
               "type": "tm.Store",
               "name": "users.json / secure_users.json",
@@ -425,25 +442,25 @@
               "threats": [
                 {
                   "id": "4956fbc4-900f-4511-b4cb-f1042968e3a5",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
+                  "title": "Undetected data tampering",
+                  "status": "Mitigated",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "An attacker or careless edit could modify a record in the JSON file with no way to detect the change.",
+                  "mitigation": "SHA-256 integrity hash computed per record in secure_version.py; verified on read and against users_tampered.json.",
                   "modelType": "STRIDE",
-                  "new": true,
+                  "new": false,
                   "number": 1,
                   "score": ""
                 },
                 {
                   "id": "fcc8348f-a831-4b7a-ae51-cf2746cac93f",
-                  "title": "Hardcoded info",
+                  "title": "Plaintext password exposure",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Information disclosure",
-                  "description": "Passwords stored/printed in plaintext",
-                  "mitigation": "mitigated by Fernet encryption + masked console output",
+                  "description": "Passwords stored/printed without encryption expose credentials to anyone with file or console access.",
+                  "mitigation": "Passwords encrypted with Fernet (AES) before storage; console output masked with ********",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 3,
@@ -451,9 +468,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 0,
+                "tampering": 1,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             }
@@ -478,7 +495,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Stores Encrypted record",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -492,7 +509,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Data Flow"
+              "Stores Encrypted record"
             ],
             "id": "2f3c48a3-aca2-41ab-85c2-f5dddeb919ee",
             "source": {
@@ -503,118 +520,14 @@
               "cell": "69f313d9-f554-4f92-843a-04bac686cf12",
               "port": "89e15170-ba9b-485e-b775-2ad2ea8dda17"
             },
-            "vertices": [
-              {
-                "x": 690,
-                "y": 360
-              }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            "vertices": []
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -630,106 +543,66 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Submits Credentials",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "6a8f3b35-8b97-4e8a-b5c2-c094633fcf30",
+                  "title": "Secret committed to version control",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "A GitHub personal access token was accidentally committed to git.txt during setup, exposing repo write access.",
+                  "mitigation": "GitHub push protection blocked the push; token was revoked and regenerated; file added to .gitignore.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "3c5fd63c-48d1-4ab6-b257-0aa0926a1f35"
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
-              "Data Flow"
+              "Submits Credentials"
             ],
             "id": "5fab2f5d-89b3-4c97-a4cd-77180b840779",
             "source": {
-              "x": 440,
-              "y": 310
+              "cell": "39a51ee5-b7ac-40af-a391-a78c88b71005",
+              "port": "90cc06c3-457b-441e-a698-5a31f07a53c5"
             },
             "target": {
-              "x": 631,
-              "y": 223
+              "cell": "527f4430-e9ae-4e08-aa11-5a20ca5df460",
+              "port": "66fe5156-ccb9-4fea-925c-218ef1a13daa"
             },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            "vertices": [
+              {
+                "x": 510,
+                "y": 355
+              },
+              {
+                "x": 530,
+                "y": 360
+              },
+              {
+                "x": 600,
+                "y": 360
+              }
+            ]
           }
         ],
         "description": "CIAT mapping to DevSecOps"
@@ -737,6 +610,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Tim Wong",
-    "threatTop": 3
+    "threatTop": 5
   }
 }
