@@ -1,0 +1,615 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Secure User Data Storage - Lab 1",
+    "owner": "Zawadh",
+    "description": "A Python command-line application that stores user credentials (username, password, email) in a local JSON file. Passwords are encrypted using Fernet (AES), and each record is protected with a SHA-256 integrity hash. The application detects tampering by comparing a monitored file against reference hashes, with results logged to an audit file.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "DevSecOps-CIAT",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": 221.25,
+              "y": 315
+            },
+            "size": {
+              "width": 150,
+              "height": 80
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "3c5fd63c-48d1-4ab6-b257-0aa0926a1f35",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "5fab2f5d-89b3-4c97-a4cd-77180b840779"
+              ],
+              "containedElements": [
+                "39a51ee5-b7ac-40af-a391-a78c88b71005"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 240,
+              "y": 325
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "User"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "0b79f2d5-44b8-408d-9a67-b6ef7088f950"
+                },
+                {
+                  "group": "right",
+                  "id": "90cc06c3-457b-441e-a698-5a31f07a53c5"
+                },
+                {
+                  "group": "bottom",
+                  "id": "be3d6fe7-6d71-4915-8b00-7ed1e805416a"
+                },
+                {
+                  "group": "left",
+                  "id": "d0f24b18-8a80-4fc0-9610-8c449b3d77eb"
+                }
+              ]
+            },
+            "id": "39a51ee5-b7ac-40af-a391-a78c88b71005",
+            "data": {
+              "type": "tm.Actor",
+              "name": "User",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 651.25,
+              "y": 290
+            },
+            "size": {
+              "width": 230,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "secure_version.py"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "68b1b891-78e0-4990-a69e-6f9d859e6259"
+                },
+                {
+                  "group": "right",
+                  "id": "9af53e24-37e0-45b2-999c-691ee64ba25f"
+                },
+                {
+                  "group": "bottom",
+                  "id": "40d5d148-5234-42c0-8357-99d7011dc42a"
+                },
+                {
+                  "group": "left",
+                  "id": "66fe5156-ccb9-4fea-925c-218ef1a13daa"
+                }
+              ]
+            },
+            "id": "527f4430-e9ae-4e08-aa11-5a20ca5df460",
+            "data": {
+              "type": "tm.Process",
+              "name": "secure_version.py",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "138231a7-bcf0-4ca4-a913-70048789ffc3",
+                  "title": "Weak/no input validation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Empty or malformed input (username/password/email) could be accepted, corrupting stored data.",
+                  "mitigation": "validate_input() rejects empty fields, short passwords, and malformed emails.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "3c1c58ca-2379-4dd1-8e05-baaf0abc9797",
+                  "title": "Hardcoded encryption key",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "A key embedded directly in source code (as in insecure_version.py) is exposed to anyone who reads the file or repo.",
+                  "mitigation": "Key generated once and stored in a separate secret.key file, excluded from version control via .gitignore.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 3,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 1190,
+              "y": 310
+            },
+            "size": {
+              "width": 220,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "users.json / secure_"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "a0708c4e-db5e-4019-8cee-16e2ee2f7686"
+                },
+                {
+                  "group": "right",
+                  "id": "70266a5a-c046-450e-a3a4-01a8b851048d"
+                },
+                {
+                  "group": "bottom",
+                  "id": "c6596e9f-fdbe-436e-a582-4e319831760e"
+                },
+                {
+                  "group": "left",
+                  "id": "89e15170-ba9b-485e-b775-2ad2ea8dda17"
+                }
+              ]
+            },
+            "id": "69f313d9-f554-4f92-843a-04bac686cf12",
+            "data": {
+              "type": "tm.Store",
+              "name": "users.json / secure_users.json",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "4956fbc4-900f-4511-b4cb-f1042968e3a5",
+                  "title": "Undetected data tampering",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker or careless edit could modify a record in the JSON file with no way to detect the change.",
+                  "mitigation": "SHA-256 integrity hash computed per record in secure_version.py; verified on read and against users_tampered.json.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "fcc8348f-a831-4b7a-ae51-cf2746cac93f",
+                  "title": "Plaintext password exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Passwords stored/printed without encryption expose credentials to anyone with file or console access.",
+                  "mitigation": "Passwords encrypted with Fernet (AES) before storage; console output masked with ********",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Stores Encrypted record",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Stores Encrypted record"
+            ],
+            "id": "2f3c48a3-aca2-41ab-85c2-f5dddeb919ee",
+            "source": {
+              "cell": "527f4430-e9ae-4e08-aa11-5a20ca5df460",
+              "port": "9af53e24-37e0-45b2-999c-691ee64ba25f"
+            },
+            "target": {
+              "cell": "69f313d9-f554-4f92-843a-04bac686cf12",
+              "port": "89e15170-ba9b-485e-b775-2ad2ea8dda17"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Submits Credentials",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "6a8f3b35-8b97-4e8a-b5c2-c094633fcf30",
+                  "title": "Secret committed to version control",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "A GitHub personal access token was accidentally committed to git.txt during setup, exposing repo write access.",
+                  "mitigation": "GitHub push protection blocked the push; token was revoked and regenerated; file added to .gitignore.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "3c5fd63c-48d1-4ab6-b257-0aa0926a1f35"
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Submits Credentials"
+            ],
+            "id": "5fab2f5d-89b3-4c97-a4cd-77180b840779",
+            "source": {
+              "cell": "39a51ee5-b7ac-40af-a391-a78c88b71005",
+              "port": "90cc06c3-457b-441e-a698-5a31f07a53c5"
+            },
+            "target": {
+              "cell": "527f4430-e9ae-4e08-aa11-5a20ca5df460",
+              "port": "66fe5156-ccb9-4fea-925c-218ef1a13daa"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": 355
+              },
+              {
+                "x": 530,
+                "y": 360
+              },
+              {
+                "x": 600,
+                "y": 360
+              }
+            ]
+          }
+        ],
+        "description": "CIAT mapping to DevSecOps"
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "Tim Wong",
+    "threatTop": 5
+  }
+}
