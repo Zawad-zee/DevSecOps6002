@@ -1,3 +1,5 @@
+#reviewed / hardened version# Phase 2 - Secure, reviewed version.
+# See Pull Request for review history.
 import json
 import hashlib
 import logging
